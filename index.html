@@ -1,0 +1,243 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт про компьютеры</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transition: transform 0.4s ease-in-out;
+        }
+        .hide-header {
+            transform: translateY(-100%);
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+        main {
+            padding: 100px 20px 20px;
+        }
+        section {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .social-links {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .social-links a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .social-links a:hover {
+            background-color: #45a049;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .toggle-content {
+            display: none;
+            padding: 15px;
+            margin-top: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .question {
+            cursor: pointer;
+            color: #4CAF50;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        let lastScrollTop = 0;
+        window.addEventListener("scroll", function() {
+            let header = document.querySelector("header");
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                header.classList.add("hide-header");
+            } else {
+                header.classList.remove("hide-header");
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Добро пожаловать на сайт про компьютеры</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#news">Новости</a></li>
+                <li><a href="#reviews">Обзоры</a></li>
+                <li><a href="#tutorials">Руководства</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h2>Главная</h2>
+            <p>Здесь вы найдете самую актуальную информацию о компьютерах, новостях, обзорах, инструкциях и многом другом.</p>
+            <p>Наш сайт предназначен как для начинающих пользователей, так и для опытных профессионалов, работающих с компьютерной техникой.</p>
+        </section>
+
+        <section id="news">
+            <h2>Новости</h2>
+            <p>Последние события и тренды в мире компьютерных технологий.</p>
+            <ul>
+                <li><span class="question" onclick="toggleContent('content1')">Новый процессор Intel 14-го поколения: производительность и тесты</span>
+                    <div class="toggle-content" id="content1">
+                        <p>Intel представила свой новый процессор 14-го поколения с улучшенной производительностью и энергоэффективностью. Тесты показали значительный прирост в производительности в многозадачных приложениях. <a href="#">Ссылка на полный обзор</a></p>
+                    </div>
+                </li>
+                <li><span class="question" onclick="toggleContent('content2')">AMD представила видеокарту серии RX 8000: революционные технологии</span>
+                    <div class="toggle-content" id="content2">
+                        <p>AMD анонсировала новые видеокарты серии RX 8000, которые предлагают улучшенную графику и поддержку новых технологий для геймеров и профессионалов. <a href="#">Ссылка на полный обзор</a></p>
+                    </div>
+                </li>
+                <li><span class="question" onclick="toggleContent('content3')">Обзор новейших SSD-накопителей: скорость и надежность</span>
+                    <div class="toggle-content" id="content3">
+                        <p>Мы тестируем последние SSD-накопители, которые обещают невероятную скорость и улучшенную надежность. Как выбрать лучший SSD для вашего ПК? <a href="#">Ссылка на полный обзор</a></p>
+                    </div>
+                </li>
+                <li><span class="question" onclick="toggleContent('content4')">Windows 12: ожидаемые функции и дата выхода</span>
+                    <div class="toggle-content" id="content4">
+                        <p>Ожидается, что Windows 12 будет включать новые функции для улучшения производительности и безопасности. Рассказываем о наиболее ожидаемых новшествах и сроках релиза. <a href="#">Ссылка на полный обзор</a></p>
+                    </div>
+                </li>
+                <li><span class="question" onclick="toggleContent('content5')">Apple представила новый MacBook с чипом M3</span>
+                    <div class="toggle-content" id="content5">
+                        <p>Apple анонсировала новый MacBook, оснащенный чипом M3. Этот ноутбук обещает значительно улучшенную производительность и эффективность по сравнению с предыдущими моделями. <a href="#">Ссылка на полный обзор</a></p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section id="reviews">
+            <h2>Обзоры</h2>
+            <p>Мы тестируем и анализируем новейшее компьютерное оборудование.</p>
+            <ul>
+                <li><span class="question" onclick="toggleContent('content6')">Обзор игрового ноутбука ASUS ROG Zephyrus G16</span>
+                    <div class="toggle-content" id="content6">
+                        <p>Ноутбук ASUS ROG Zephyrus G16 - это мощное игровое устройство с процессором AMD Ryzen и видеокартой NVIDIA GeForce RTX 3070. Мы протестировали его производительность в играх, таких как Cyberpunk 2077, и результаты впечатляют! <a href="#">Ссылка на полный обзор</a></p>
+                    </div>
+                </li>
+                <li><span class="question" onclick="toggleContent('content7')">Сравнение процессоров Intel Core i9 и AMD Ryzen 9: какой выбрать?</span>
+                    <div class="toggle-content" id="content7">
+                        <p>В этом обзоре мы сравнили два флагманских процессора Intel Core i9 и AMD Ryzen 9, проверив их в разных задачах: от игр до работы с видео. Оба процессора показывают отличные результаты, но есть особенности, которые могут повлиять на выбор. <a href="#">Ссылка на полный обзор</a></p>
+                    </div>
+                </li>
+                <li><span class="question" onclick="toggleContent('content8')">Лучшие механические клавиатуры 2024 года: топ-10 моделей</span>
+                    <div class="toggle-content" id="content8">
+                        <p>В этом обзоре мы рассматриваем самые лучшие механические клавиатуры, которые будут популярны в 2024 году. Среди них модели от таких брендов, как Corsair, Logitech и Razer. Мы уделяем внимание клавишам, переключателям и дизайну. <a href="#">Ссылка на полный обзор</a></p>
+                    </div>
+                </li>
+                <li><span class="question" onclick="toggleContent('content9')">Сравнение видеокарт RTX 4090 vs RTX 4080: что лучше для игр?</span>
+                    <div class="toggle-content" id="content9">
+                        <p>Сравнив видеокарты NVIDIA RTX 4090 и RTX 4080, мы протестировали их в самых требовательных играх на максимальных настройках. Обе видеокарты демонстрируют отличные результаты, но RTX 4090 — это истинный лидер, если вам нужна максимальная производительность. <a href="#">Ссылка на полный обзор</a></p>
+                    </div>
+                </li>
+                <li><span class="question" onclick="toggleContent('content10')">Мониторы с высокой частотой обновления: стоит ли покупать 240 Гц?</span>
+                    <div class="toggle-content" id="content10">
+                        <p>Мониторы с высокой частотой обновления становятся всё более популярными среди геймеров. Мы рассмотрели, стоит ли тратить деньги на мониторы с частотой 240 Гц, и какие плюсы и минусы они имеют по сравнению с более стандартными 144 Гц. <a href="#">Ссылка на полный обзор</a></p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section id="tutorials">
+            <h2>Руководства</h2>
+            <p>Полезные советы по настройке, сборке и оптимизации ПК.</p>
+            <ul>
+                <li><span class="question" onclick="toggleContent('content11')">Как выбрать видеокарту для игр в 2025 году?</span>
+                    <div class="toggle-content" id="content11">
+                        <p>Этот гид поможет вам выбрать видеокарту для игр в 2025 году. Мы рассмотрим текущие лучшие модели и особенности, на которые стоит обратить внимание при выборе. <a href="#">Ссылка на полное руководство</a></p>
+                    </div>
+                </li>
+                <li><span class="question" onclick="toggleContent('content12')">Как собрать игровой ПК с нуля: пошаговая инструкция</span>
+                    <div class="toggle-content" id="content12">
+                        <p>Если вы хотите собрать свой собственный игровой ПК, это руководство идеально для вас! Мы объясняем, какие компоненты выбрать и как правильно собрать систему. <a href="#">Ссылка на полное руководство</a></p>
+                    </div>
+                </li>
+                <li><span class="question" onclick="toggleContent('content13')">Как увеличить производительность ПК для работы с графикой?</span>
+                    <div class="toggle-content" id="content13">
+                        <p>В этом гиде мы покажем, как улучшить производительность вашего ПК для работы с графическими приложениями. Оптимизация настроек, выбор подходящих компонентов и советов по охлаждению. <a href="#">Ссылка на полное руководство</a></p>
+                    </div>
+                </li>
+                <li><span class="question" onclick="toggleContent('content14')">Как оптимизировать Windows для максимальной производительности?</span>
+                    <div class="toggle-content" id="content14">
+                        <p>В этом руководстве мы расскажем, как настроить операционную систему для максимальной производительности, удаляя ненужные процессы и оптимизируя параметры. <a href="#">Ссылка на полное руководство</a></p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <section id="contact">
+            <h2>Контакты</h2>
+            <p>Если у вас есть вопросы или предложения, не стесняйтесь связаться с нами!</p>
+            <p>Email: <a href="mailto:info@computer-site.ru">info@computer-site.ru</a></p>
+            <p>Телефон: +7 (123) 456-78-90</p>
+            <p>Адрес: г. Москва, ул. Технологическая, д. 5</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Сайт про компьютеры. Все права защищены.</p>
+    </footer>
+</body>
+</html>
